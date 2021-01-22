@@ -1,3 +1,4 @@
+const async = require("async");
 const Parallel = require("..");
 
 describe("Parallel", () => {
@@ -16,7 +17,7 @@ describe("Parallel", () => {
     hsetnx: jest.fn()
   };
 
-  const deps = { logger, graceful, U: { sleep }, redis };
+  const deps = { async, logger, graceful, U: { sleep }, redis };
 
   const fn = jest.fn(async () => {
     await sleep(20);
