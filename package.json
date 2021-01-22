@@ -1,0 +1,24 @@
+{
+  "name": "@domain.js/parallel",
+  "version": "0.1.0",
+  "description": "domain.js parallel 通用模块",
+  "main": "index.js",
+  "scripts": {
+    "test": "export NODE_ENV=test && jest ./__test__ --coverage",
+    "test:watch": "export NODE_ENV=test && jest ./__test__ --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/domain-js/parallel/.git"
+  },
+  "keywords": ["parallel", "domain.js"],
+  "author": "Redstone Zhao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/domain-js/parallel/issues"
+  },
+  "homepage": "https://github.com/domain-js/parallel#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
