@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "export NODE_ENV=test && jest ./__test__ --coverage",
-    "test:watch": "export NODE_ENV=test && jest ./__test__ --watch"
+    "test:watch": "export NODE_ENV=test && jest ./__test__ --watch",
+    "tsc": "tsc"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   "homepage": "https://github.com/domain-js/parallel#readme",
   "devDependencies": {
     "async": "^3.2.0",
-    "jest": "^24.9.0"
+    "jest": "^24.9.0",
+    "typescript": "^3.9.9"
   }
 }
