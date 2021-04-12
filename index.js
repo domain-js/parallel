@@ -60,6 +60,10 @@ function Parallel(cnf, deps) {
       if (exiting) throw Error("process exiting");
       const key = keyFn(path, ...args);
       const size = await redis.hsetnx(KEY, key, Date.now());
+      if (exiting) {
+        await redis.hdel(KEY, key);
+        throw Error("process exiting");
+      }
       if (!size) {
         // 不需要等待，则直接抛出异常
         if (!needWaitMS) {
