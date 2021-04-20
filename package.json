@@ -1,6 +1,6 @@
 {
   "name": "@domain.js/parallel",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "domain.js parallel 通用模块",
   "main": "index.js",
   "scripts": {

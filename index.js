@@ -47,12 +47,12 @@ function Parallel(cnf, deps) {
       const remainMS = minMS - timing; // 计算和最小耗时的差值毫秒数
       if (0 < remainMS) {
         setTimeout(async () => {
-          doings.delete(key);
           await redis.hdel(KEY, key);
+          doings.delete(key);
         }, remainMS);
       } else {
-        doings.delete(key);
         await redis.hdel(KEY, key);
+        doings.delete(key);
       }
     };
 
