@@ -51,11 +51,11 @@ function Parallel(cnf, deps) {
     {
       path, // 必选 并发控制key的主路径
       keyFn, // 可选 并发控制计算key的函数
-      minMS, // 可选 最小执行锁定时间 单位毫秒
+      minMS = 0, // 可选 最小执行锁定时间 单位毫秒
       errorFn, // 可选 错误处理函数
-      needWaitMS, // 可选 是否需要定时去验证获取执行权限
-      neverReturn, // 可选 是否需要永久锁定，不返回退出
-    }
+      needWaitMS = 0, // 可选 是否需要定时去验证获取执行权限
+      neverReturn = false, // 可选 是否需要永久锁定，不返回退出
+    },
   ) => {
     const error = (errorFn || defaultErrorFn)(path, minMS);
     // key 默认等于 path
@@ -87,7 +87,7 @@ function Parallel(cnf, deps) {
         // 需要等待
         await async.whilst(
           async () => Boolean(await redis.exists(key)),
-          async () => sleep(needWaitMS)
+          async () => sleep(needWaitMS),
         );
         return paralleled(...args);
       }
